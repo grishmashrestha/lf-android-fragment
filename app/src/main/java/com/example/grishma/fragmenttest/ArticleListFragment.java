@@ -1,5 +1,6 @@
 package com.example.grishma.fragmenttest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,9 +35,15 @@ public class ArticleListFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Timber.i("from onAttach");
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Timber.d("from onCreate fragment");
+        Timber.d("from onCreate");
     }
 
     @Override
@@ -44,5 +51,53 @@ public class ArticleListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_article_list, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Timber.i("from onActivityCreated");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Timber.i("from onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.i("from onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Timber.i("from onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Timber.i("from onStop");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Timber.i("from onDestroyView");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Timber.i("from onDestroy");
+    }
+
+    @Override
+    public void onDetach() {
+        Timber.i("from onDetach");
+        super.onDetach();
     }
 }
